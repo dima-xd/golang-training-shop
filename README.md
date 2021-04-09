@@ -1,3 +1,3 @@
 # golang-training-shop
 
-![alt text](shop.png "shop scheme")
+![alt text](https://github.com/dimaxdqwerty/golang-training-shop/blob/main/shop.png "shop scheme")
