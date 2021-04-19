@@ -13,7 +13,7 @@ Application for managing products with such operations as in table below:
 | /products/{id}/{unit_price} | PUT    | update product's unit price by the id |                                                                                                                                                                                                                                  |
 | /products/{id}              | DELETE | delete product by the id              |                                                                                                                                                                                                                                  |
 
-## How to run
+## How to run server
 1.  Server runs on 8081 port. To run it type:
 	`go run cmd/main.go`
 2.  Open URL
