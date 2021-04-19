@@ -21,4 +21,4 @@ Application for managing products with such operations as in table below:
 
 ## How to run unit tests
 To run unit tests type:
-`go test task_4/pkg/data`
+`go test ./...`
