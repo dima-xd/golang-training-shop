@@ -5,8 +5,8 @@ import (
 	"log"
 	"os"
 
-	"task_3/pkg/data"
-	"task_3/pkg/db"
+	"github.com/dimaxdqwerty/golang-training-shop/task_3/pkg/data"
+	"github.com/dimaxdqwerty/golang-training-shop/task_3/pkg/db"
 )
 
 var (
