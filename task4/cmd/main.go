@@ -6,9 +6,9 @@ import (
 	"net/http"
 	"os"
 
-	"task_4/pkg/api"
-	"task_4/pkg/data"
-	"task_4/pkg/db"
+	"github.com/dimaxdqwerty/golang-training-shop/task_4/pkg/api"
+	"github.com/dimaxdqwerty/golang-training-shop/task_4/pkg/data"
+	"github.com/dimaxdqwerty/golang-training-shop/task_4/pkg/db"
 
 	"github.com/gorilla/mux"
 )

@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"task_4/pkg/data"
+	"github.com/dimaxdqwerty/golang-training-shop/task_4/pkg/data"
 
 	"github.com/gorilla/mux"
 )
@@ -38,6 +38,7 @@ func (p productAPI) getAllProducts(writer http.ResponseWriter, request *http.Req
 		writer.WriteHeader(http.StatusInternalServerError)
 		return
 	}
+	writer.WriteHeader(http.StatusOK)
 }
 
 func (p productAPI) createUser(writer http.ResponseWriter, request *http.Request) {
