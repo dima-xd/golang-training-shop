@@ -30,6 +30,8 @@ func (p productAPI) getAllProducts(writer http.ResponseWriter, request *http.Req
 		_, err := writer.Write([]byte("got an error when tried to get products"))
 		if err != nil {
 			log.Println(err)
+			writer.WriteHeader(http.StatusInternalServerError)
+			return
 		}
 	}
 	err = json.NewEncoder(writer).Encode(products)
