@@ -8,18 +8,11 @@ import (
 
 // Product - table products in struct form
 type Product struct {
-	ID int `gorm:"primaryKey"` // primary key
-	Name string `gorm:"name"` // product's name
-	ProductCategoryID int `gorm:"product_category_id"` // foreign key of the product_categories table
-	ProductCategory ProductCategory // copy of ProductCategory struct
-	Quantity int `gorm:"quantity"` // number of product in stock
-	UnitPrice string `gorm:"money"` // price of product by unit
-}
-
-// ProductCategory - table product_categories in struct form
-type ProductCategory struct {
-	ID int `gorm:"primaryKey"`
-	Category string `gorm:"category"`
+	ID                int    `gorm:"primaryKey"`          // primary key
+	Name              string `gorm:"name"`                // product's name
+	ProductCategoryID int    `gorm:"product_category_id"` // foreign key of the product_categories table
+	Quantity          int    `gorm:"quantity"`            // number of product in stock
+	UnitPrice         string `gorm:"money"`               // price of product by unit
 }
 
 // ProductData - has connection to db
@@ -28,14 +21,14 @@ type ProductData struct {
 }
 
 // NewProductData - creates copy of ProductData to control operations with db
-func NewProductData(db *gorm.DB) *ProductData{
+func NewProductData(db *gorm.DB) *ProductData {
 	return &ProductData{db: db}
 }
 
 // ReadAll - gets array of products
 func (p ProductData) ReadAll() ([]Product, error) {
 	var products []Product
-	result := p.db.Preload("ProductCategory").Find(&products)
+	result := p.db.Table("products").Find(&products)
 	if result.Error != nil {
 		return nil, fmt.Errorf("can't read products from database, error: %w", result.Error)
 	}
@@ -45,7 +38,7 @@ func (p ProductData) ReadAll() ([]Product, error) {
 // Read - gets product by the id
 func (p ProductData) Read(id int) (Product, error) {
 	var product Product
-	result := p.db.Where("id", id).Preload("ProductCategory").Find(&product)
+	result := p.db.Where("id", id).Find(&product)
 	if result.Error != nil {
 		return Product{}, fmt.Errorf("can't read product by the id from database, error: %w", result.Error)
 	}
